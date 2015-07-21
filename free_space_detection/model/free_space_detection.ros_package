@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ros:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ros="http://ros/1.0" name="free_space_detection" author="Manuela Schuler" author_email="Manuela.Schuler@ipa.fraunhofer.de" description="The free_space_detection package" license="TODO">
+  <node name="free_space_detection_node" frequency="30.0">
+    <publisher name="segment_freespace_mask" msg="sensor_msgs::Image"/>
+    <publisher name="colorHistogram_freespace_mask" msg="sensor_msgs::Image"/>
+    <publisher name="disparity_freespace_mask" msg="sensor_msgs::Image"/>
+    <publisher name="final_freespace_mask" msg="sensor_msgs::Image"/>
+    <publisher name="freeSpacePoints" msg="sensor_msgs::PointCloud2"/>
+    <subscriber name="camera_rgb_camera_info" msg="sensor_msgs::CameraInfo"/>
+    <subscriber name="camera_rgb_image_color" msg="sensor_msgs::Image"/>
+    <subscriber name="camera_depth_disparity" msg="stereo_msgs::DisparityImage"/>
+    <subscriber name="camera_depth_points" msg="sensor_msgs::PointCloud2"/>
+    <subscriber name="camera_depth_camera_info" msg="sensor_msgs::CameraInfo"/>
+    <parameter name="m_debug_b" type="bool" value="false"/>
+    <parameter name="m_extractROI_b" type="bool" value="true"/>
+    <parameter name="m_printTimings_b" type="bool" value="false"/>
+    <parameter name="m_writeResults_b" type="bool" value="false"/>
+    <parameter name="m_sigma_gaussian_filter_d" type="double" value="0.7"/>
+    <parameter name="m_minH_thresh_d" type="double" value="0.3"/>
+    <parameter name="m_minI_thresh_d" type="double" value="0.3"/>
+    <parameter name="m_felz_sigma_d" type="double" value="0.9"/>
+    <parameter name="m_felz_k_i" value="200"/>
+    <parameter name="m_felz_minSize_i" value="250"/>
+    <parameter name="m_segmentClassification_thresh_d" type="double" value="0.6"/>
+    <parameter name="m_morphSize_i" value="2"/>
+    <parameter name="m_Vdisp_thresh_d" type="double" value="10.0"/>
+    <parameter name="m_minValidDisp_thresh_d" type="double" value="0.7"/>
+    <parameter name="m_resolution_H_d" type="double" value="0.05"/>
+    <parameter name="m_resolution_I_d" type="double" value="0.03"/>
+    <parameter name="m_Udisp_thresh_d" type="double" value="5.0"/>
+    <parameter name="m_maxDelay_d" type="double" value="450.0"/>
+    <parameter name="m_alpha_d" type="double" value="0.7"/>
+    <parameter name="m_maxH_thresh_d" type="double" value="0.8"/>
+    <parameter name="m_maxI_thresh_d" type="double" value="0.8"/>
+    <parameter name="m_priorityAccuracy_b" type="bool" value="true"/>
+    <parameter name="m_minIntensity_i" value="80"/>
+  </node>
+  <depend>std_msgs</depend>
+  <depend>image_transport</depend>
+  <depend>cv_bridge</depend>
+  <depend>roscpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>stereo_msgs</depend>
+  <depend>pcl_ros</depend>
+</ros:Package>
