@@ -55,8 +55,7 @@ add_executable(free_space_detection_node ros/src/free_space_detection_node_ros.c
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
-add_dependencies(free_space_detection_node free_space_detection_node_gencfg)
-add_dependencies(free_space_detection_node ${free_space_detection_EXPORTED_TARGETS})
+add_dependencies(free_space_detection_node ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(free_space_detection_node

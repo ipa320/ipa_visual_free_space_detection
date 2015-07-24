@@ -1,7 +1,7 @@
 // ROS includes
 #include <ros/ros.h>
 #include <dynamic_reconfigure/server.h>
-#include <free_space_detection/free_space_detection_nodeConfig.h>
+#include <ipa_visual_free_space_detection/free_space_detection_nodeConfig.h>
 
 // ROS message includes
 #include <sensor_msgs/Image.h>
