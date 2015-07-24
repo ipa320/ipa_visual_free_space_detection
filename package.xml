@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <package>
-  <name>free_space_detection</name>
+  <name>ipa_visual_free_space_detection</name>
   <description>The free_space_detection package</description>
   <version>0.1.0</version>
   <maintainer email="Manuela.Schuler@ipa.fraunhofer.de">Manuela Schuler</maintainer>
   <author email="Manuela.Schuler@ipa.fraunhofer.de">Manuela Schuler</author>
-  <license>TODO</license>
+  <license>Fraunhofer IPA</license>
   <url></url>
 
   <buildtool_depend>catkin</buildtool_depend>

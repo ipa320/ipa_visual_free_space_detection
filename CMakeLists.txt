@@ -1,19 +1,19 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(free_space_detection)
+project(ipa_visual_free_space_detection)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-	roscpp
-    dynamic_reconfigure 
-	std_msgs
-	image_transport
-	cv_bridge
-	roscpp
-	sensor_msgs
-	stereo_msgs
-	pcl_ros
+  roscpp
+  dynamic_reconfigure 
+  std_msgs
+  image_transport
+  cv_bridge
+  roscpp
+  sensor_msgs
+  stereo_msgs
+  pcl_ros
 )
 
 generate_dynamic_reconfigure_options(cfg/free_space_detection_node.cfg )
@@ -28,16 +28,15 @@ generate_dynamic_reconfigure_options(cfg/free_space_detection_node.cfg )
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   CATKIN_DEPENDS 
-  	roscpp
+    roscpp
     dynamic_reconfigure
-	std_msgs
-	image_transport
-	cv_bridge
-	roscpp
-	sensor_msgs
-	stereo_msgs
-	pcl_ros
-   
+    std_msgs
+    image_transport
+    cv_bridge
+    roscpp
+    sensor_msgs
+    stereo_msgs
+    pcl_ros
 )
 
 ###########
