@@ -24,7 +24,7 @@ public:
 
 	//Segmentation with DBScan
 	std::vector<std::vector<Line> > DBSCAN(std::vector<Line> &r_lines_vec,
-			float eps_f, float epsM_f, int minLength_f);
+			float eps_f, float epsM_f, unsigned int minLength_f);
 	std::vector<int> DB_regionQuery(std::vector<Line> &r_lines_vec,
 			Line &r_line, float epsPt_f, float epsM_f);
 	void cluster(std::vector<Line> &r_lines_vec,

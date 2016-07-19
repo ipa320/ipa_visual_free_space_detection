@@ -56,7 +56,7 @@ public:
 	bool doIntersect(Line &l2) {
 		float m1 = getGradient();
 		float m2 = l2.getGradient();
-		bool sameMVZ = m1 <= 0 && m2 <= 0 || m1 >= 0 && m2 >= 0;
+		bool sameMVZ = (m1 <= 0 && m2 <= 0) || (m1 >= 0 && m2 >= 0);
 		bool similarGradient = false;
 
 		if (sameMVZ && fabs(m2 - m1) <= 0.1f)

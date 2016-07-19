@@ -3,10 +3,9 @@
 #include <common.h>
 
 FreespaceCommon::FreespaceCommon() :
-		m_debug_b(true), m_printTimings_b(false), m_extractROI_b(true), m_writeResults_b(
-				false), m_frameNr_i(0), m_orgImgWidth_i(0), m_orgImgHeight_i(0), m_roi_offsetX_i(
-				0), m_roi_offsetY_i(0), m_morphSize_i(2), m_morphElement_i(
-				cv::MORPH_ELLIPSE), m_morphOperation_i(cv::MORPH_CLOSE) {
+        m_frameNr_i(0), m_debug_b(true), m_printTimings_b(false), m_writeResults_b(false), m_extractROI_b(true),
+        m_morphSize_i(2), m_morphElement_i(cv::MORPH_ELLIPSE), m_morphOperation_i(cv::MORPH_CLOSE),
+        m_orgImgWidth_i(0), m_orgImgHeight_i(0), m_roi_offsetX_i(0), m_roi_offsetY_i(0) {
 	m_path_str = "/home/frm-ms/Manu/free_space_detection/results/";
 }
 

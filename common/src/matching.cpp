@@ -9,14 +9,14 @@ float getDistance(cv::Point2f p1, cv::Point2f p2) {
 std::vector<int> Matching::DB_regionQuery(std::vector<Line> &r_lines_vec,
 		Line &r_line, float epsPt_f, float epsM_f) {
 	std::vector<int> retKeys_vec;
-	for (int i = 0; i < r_lines_vec.size(); ++i) {
+	for (unsigned int i = 0; i < r_lines_vec.size(); ++i) {
 		bool condition_b = (r_line.m_start.x < (r_lines_vec.at(i)).m_start.x);
 		Line l1 = condition_b ? r_line : r_lines_vec.at(i);
 		Line l2 = condition_b ? r_lines_vec.at(i) : r_line;
 		float m1_f = l1.getGradient();
 		float m2_f = l2.getGradient();
 
-		bool sameGradSign_b = m1_f <= 0 && m2_f <= 0 || m1_f >= 0 && m2_f >= 0;
+		bool sameGradSign_b = (m1_f <= 0 && m2_f <= 0) || (m1_f >= 0 && m2_f >= 0);
 		double gradDist_d = fabs(m2_f - m1_f) + 0.001f;
 		if (!sameGradSign_b) {
 			gradDist_d *= 10.0f;
@@ -44,7 +44,7 @@ void Matching::cluster(std::vector<Line> &r_lines_vec,
 
 //DBScan algorithm (adapted to lines)
 std::vector<std::vector<Line> > Matching::DBSCAN(std::vector<Line> &r_lines_vec,
-		float eps_f, float epsM_f, int minLines_i) {
+		float eps_f, float epsM_f, unsigned int minLines_i) {
 	std::vector<std::vector<Line> > clusters;
 	std::vector<bool> clustered, visited;
 	std::vector<int> noise;
@@ -79,7 +79,7 @@ std::vector<std::vector<Line> > Matching::DBSCAN(std::vector<Line> &r_lines_vec,
 				clusters[c].push_back(r_lines_vec.at(i));
 
 				//for each point P' in neighborPts
-				for (int j = 0; j < neighborLines.size(); ++j) {
+				for (unsigned int j = 0; j < neighborLines.size(); ++j) {
 					//if P' is not visited
 					if (!visited[neighborLines[j]]) {
 						//Mark P' as visited
@@ -124,7 +124,7 @@ std::vector<Line> Matching::processCluster(
 			float max_eY_f = 0;
 			int size_i = cluster.size();
 
-			for (int i = 0; i < cluster.size(); ++i) {
+			for (unsigned int i = 0; i < cluster.size(); ++i) {
 				Line line = cluster.at(i);
 				avg_sX_f += line.m_start.x;
 				avg_sY_f += line.m_start.y;

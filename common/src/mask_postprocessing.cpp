@@ -62,7 +62,7 @@ void MaskPostprocessing::concaveHull(pcl::PointCloud<pcl::PointXYZ>::Ptr &input,
 	ransac.computeModel();
 	ransac.getInliers(inliers);
 
-	printf("inliers -> \n", inliers.at(0));
+	printf("inliers -> %d\n", inliers.at(0));
 
 	// copies all inliers of the model computed to another PointCloud
 	//pcl::copyPointCloud < pcl::PointXYZ > (*cloud, inliers, *final);

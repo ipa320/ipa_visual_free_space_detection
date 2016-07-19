@@ -115,7 +115,7 @@ public:
 		/* protected region user constructor end */
     }
 
-    void configure(free_space_detection_node_config config) 
+    void configure(free_space_detection_node_config) 
     {
         /* protected region user configure on begin */
 		/* protected region user configure end */
