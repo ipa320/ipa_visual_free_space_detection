@@ -5,7 +5,7 @@
   <version>0.1.0</version>
   <maintainer email="srd@ipa.fhg.de">Stefan Dörr</maintainer>
   <author email="Manuela.Schuler@ipa.fraunhofer.de">Manuela Schuler</author>
-  <license>Fraunhofer IPA</license>
+  <license>GPL</license>
   <url></url>
 
   <buildtool_depend>catkin</buildtool_depend>
