@@ -69,7 +69,7 @@ void UVDisp::handleInvalidValues(cv::Mat &r_disparity_freespace_mask_32F,
 //break if very good line (< m_thresh_f) is found to get it faster --> ToDo: improve!
 void UVDisp::findNearestLine(cv::Point &p, const std::vector<Line> &r_lines_vec,
 		float m_thresh_f, int &r_bestIndex_i, float &r_minDist_f) {
-	for (unsigned int lineIdx_i = 0; lineIdx_i < r_lines_vec.size(); ++lineIdx_i) {
+	for (size_t lineIdx_i = 0; lineIdx_i < r_lines_vec.size(); ++lineIdx_i) {
 		Line l = r_lines_vec.at(lineIdx_i);
 		float dist_f = l.getDistance(p);
 		if (dist_f < r_minDist_f) {

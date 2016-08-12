@@ -26,7 +26,7 @@ void Sorting::sort(std::vector<Line> &lines) {
 
 void Sorting::drawIndices(std::vector<Line> &lines, cv::Mat &img) {
 	cv::Scalar color = cv::Scalar(255, 0, 0, 255);
-	for (uint i = 0; i < lines.size(); ++i) {
+	for (size_t i = 0; i < lines.size(); ++i) {
 		Line line = lines.at(i);
 		std::stringstream idx;
 		idx << i;

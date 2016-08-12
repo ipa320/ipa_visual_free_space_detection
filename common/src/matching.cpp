@@ -9,7 +9,7 @@ float getDistance(cv::Point2f p1, cv::Point2f p2) {
 std::vector<int> Matching::DB_regionQuery(std::vector<Line> &r_lines_vec,
 		Line &r_line, float epsPt_f, float epsM_f) {
 	std::vector<int> retKeys_vec;
-	for (unsigned int i = 0; i < r_lines_vec.size(); ++i) {
+	for (size_t i = 0; i < r_lines_vec.size(); ++i) {
 		bool condition_b = (r_line.m_start.x < (r_lines_vec.at(i)).m_start.x);
 		Line l1 = condition_b ? r_line : r_lines_vec.at(i);
 		Line l2 = condition_b ? r_lines_vec.at(i) : r_line;
@@ -51,10 +51,10 @@ std::vector<std::vector<Line> > Matching::DBSCAN(std::vector<Line> &r_lines_vec,
 	std::vector<int> neighborLines, neighborLines_;
 	int c;
 
-	int noKeys = r_lines_vec.size();
+	size_t noKeys = r_lines_vec.size();
 
 	//init clustered and visited
-	for (int k = 0; k < noKeys; ++k) {
+	for (size_t k = 0; k < noKeys; ++k) {
 		clustered.push_back(false);
 		visited.push_back(false);
 	}
@@ -63,7 +63,7 @@ std::vector<std::vector<Line> > Matching::DBSCAN(std::vector<Line> &r_lines_vec,
 	clusters.push_back(std::vector<Line>());
 
 	//for each unvisted point P in dataset points
-	for (int i = 0; i < noKeys; ++i) {
+	for (size_t i = 0; i < noKeys; ++i) {
 		if (!visited[i]) {
 			//Mark P as visited
 			visited[i] = true;
@@ -79,7 +79,7 @@ std::vector<std::vector<Line> > Matching::DBSCAN(std::vector<Line> &r_lines_vec,
 				clusters[c].push_back(r_lines_vec.at(i));
 
 				//for each point P' in neighborPts
-				for (unsigned int j = 0; j < neighborLines.size(); ++j) {
+				for (size_t j = 0; j < neighborLines.size(); ++j) {
 					//if P' is not visited
 					if (!visited[neighborLines[j]]) {
 						//Mark P' as visited
@@ -106,7 +106,7 @@ std::vector<std::vector<Line> > Matching::DBSCAN(std::vector<Line> &r_lines_vec,
 std::vector<Line> Matching::processCluster(
 		std::vector<std::vector<Line> > &r_cluster_vec) {
 	std::vector<Line> result_vec = std::vector<Line>();
-	for (uint cl = 0; cl < r_cluster_vec.size(); ++cl) {
+	for (size_t cl = 0; cl < r_cluster_vec.size(); ++cl) {
 		std::vector<Line> cluster = r_cluster_vec.at(cl);
 		if (!cluster.empty()) {
 			//calculate "mean" line
@@ -124,7 +124,7 @@ std::vector<Line> Matching::processCluster(
 			float max_eY_f = 0;
 			int size_i = cluster.size();
 
-			for (unsigned int i = 0; i < cluster.size(); ++i) {
+			for (size_t i = 0; i < cluster.size(); ++i) {
 				Line line = cluster.at(i);
 				avg_sX_f += line.m_start.x;
 				avg_sY_f += line.m_start.y;

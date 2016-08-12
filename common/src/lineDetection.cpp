@@ -39,7 +39,7 @@ void LineDetection::hough(const cv::Mat &r_img_8U,
 	}
 	probHough(filteredImg_8U, tmpLines_vec);
 
-	for (uint i = 0; i < tmpLines_vec.size(); ++i) {
+	for (size_t i = 0; i < tmpLines_vec.size(); ++i) {
 		cv::Point2f p1 = cv::Point2f(tmpLines_vec.at(i)[0],
 				tmpLines_vec.at(i)[1]);
 		cv::Point2f p2 = cv::Point2f(tmpLines_vec.at(i)[2],
@@ -54,7 +54,7 @@ void LineDetection::drawLines(cv::Mat &r_img_8U,
 	r_img_8U = cv::Mat::zeros(r_img_8U.rows, r_img_8U.cols, CV_8U);
 	Line groundLine = Line(cv::Point2f(0, 0), cv::Point2f(0, 0));
 
-	for (uint i = 0; i < r_lines_vec.size(); ++i) {
+	for (size_t i = 0; i < r_lines_vec.size(); ++i) {
 		Line line = r_lines_vec.at(i);
 		line.draw(r_img_8U, cv::Scalar(100, 100, 100));
 
@@ -76,7 +76,7 @@ Line LineDetection::getGroundLine(const std::vector<Line> &r_lines_vec) {
 	if (m_debug_b) {
 		printf("getGroundLine\n");
 	}
-	for (uint i = 0; i < r_lines_vec.size(); ++i) {
+	for (size_t i = 0; i < r_lines_vec.size(); ++i) {
 		Line line = r_lines_vec.at(i);
 		float length_f = line.getLength();
 
